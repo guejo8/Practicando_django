@@ -1,22 +1,67 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <p>Estas buscando: <strong>{{query}}</strong></p>
+<head>
+    <title>Resultados de la Búsqueda</title>
+    <style>
+        body {
+            
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar horizontalmente */
+            justify-content: center; /* Centrar verticalmente */
+            height: 100vh; /* Toda la altura del viewport */
+            margin: 0;
+        }
 
-        {%if articulos%}
-        <p>Articulos encontrados {{articulos|length}} articulos</p>
+        p {
+            color: #9370db; /* Color de texto violeta oscuro */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-        {%for articulo in articulos%}
-        <ul>
-            <li>
-                {{articulo.nombre}}&nbsp;{{articulo.seccion}}&nbsp;{{articulo.precio}}
 
-            </li>
-        {%endfor%}    
-        </ul>
-        {%else%}
-        <p>Lo siento, no disponemos de ese articulo </p>
-        
-        {%endif%}
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    </body>
+        li {
+            color: #4b0082; /* Color de texto violeta medio */
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        li::before {
+            content: "•"; /* Estilo de viñeta para cada elemento de la lista */
+            color: #9370db; /* Color de la viñeta violeta oscuro */
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .no-result {
+            color: #4b0082; /* Color de texto violeta medio */
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <p>Estás buscando: <strong>{{ query }}</strong></p>
+
+    {% if articulos %}
+    <p>Artículos encontrados: {{ articulos|length }} artículos</p>
+
+    <ul>
+        {% for articulo in articulos %}
+        <li>
+            {{ articulo.nombre }} &nbsp; {{ articulo.seccion }} &nbsp; {{ articulo.precio }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-result">Lo siento, no disponemos de ese artículo</p>
+    {% endif %}
+</body>
 </html>

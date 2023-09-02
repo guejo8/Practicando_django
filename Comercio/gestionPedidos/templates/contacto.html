@@ -1,0 +1,64 @@
+
+<html>
+<head>
+    <title>Contactanos</title>
+    <style>
+        body {
+            
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar horizontalmente */
+            justify-content: center; /* Centrar verticalmente */
+            height: 100vh; /* Toda la altura del viewport */
+            margin: 0;
+        }
+
+        h1 {
+            color: #ff6600; /* Color de texto naranja */
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffcc99; /* Color de fondo naranja claro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ff9933; /* Color de borde naranja oscuro */
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6600; /* Color de fondo naranja */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tienes preguntas? ¿Quieres ser miembro de nuestra comunidad? Contáctanos:</h1>
+    <form action="/contacto/" method="post"> {%csrf_token%}
+        <p>Asunto: <input type="text" name="asunto"></p>
+        <p>Email: <input type="text" name="email"></p>
+        <p>Mensaje: <textarea name="mensaje" rows="5"></textarea></p>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
