@@ -1,0 +1,30 @@
+
+<html>
+<body>
+   {%include "top_section/navbar.html"%}
+ <h1>Hola mundo!Ahora estoy empezando a usar las plantillas</h1> 
+ <h2>En este momento preciso, son las: {{fecha.hour}} : {{fecha.minute}} horas</h2>  
+ <p>Estoy invitando a la usuaria {{nombre_usuario}} {{apellido|first|upper}}</p>
+ <p>sus colores favoritos son: 
+   <ul>
+   {% if colores %}  
+      
+      {% for color in colores %}
+       <li> {{color}} </li>
+      {% endfor %}
+   
+   {% else %}
+      <p> No hay elementos que mostrar</p>
+   {%endif %}
+   </ul>
+ 
+ </p>
+
+ {#asi se pone comentario de una linea #}
+ {% comment%}esto es un comentario
+ de dos o mas lineas
+ si utilizamos la almohadilla como antes, no funciona y se ve el texto en la plantilla {% endcomment%}
+
+</body>
+</html>
+

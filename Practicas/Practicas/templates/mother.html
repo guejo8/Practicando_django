@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>
+            {% block title %} {%endblock%}
+        </title>
+    </head>
+    <style>
+        h1 {
+            color:blueviolet;
+            font-style: oblique;
+            font-weight: bolder;
+        }
+        h3 {
+            color:darkorange;
+            font-style: oblique;
+        }
+        #footer {
+            color:aqua;
+            margin: 3rem 1rem;
+        }
+    </style>
+    <body>
+        {%include "top_section/navbar.html"%}
+        <h1>Practicas Django</h1>
+        <h3>Practica sencilla de este framework tras haber seguido los tutoriales de la primera parte del curso de PildorasInformaticas </h3>
+        {% block content %} {% endblock %}
+        
+        <p id="footer">Pendientes mejoras estilo. Gracias por su visita</p>
+    </body>
+</html>
